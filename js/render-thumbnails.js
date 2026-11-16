@@ -12,11 +12,16 @@ const createPicture = ({url, description, likes, comments}) => {
   return pictureElement;
 };
 
-const renderPictures = (pictures) => {
+const renderPictures = (pictures, onPictureClick) => {
   const fragment = document.createDocumentFragment();
 
   pictures.forEach((picture) => {
-    fragment.append(createPicture(picture));
+    const pictureElement = createPicture(picture);
+    pictureElement.addEventListener('click', (event) => {
+      event.preventDefault();
+      onPictureClick(picture);
+    });
+    fragment.append(pictureElement);
   });
 
   picturesContainer.append(fragment);
