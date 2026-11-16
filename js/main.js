@@ -76,4 +76,4 @@ function createPhotos(count){
 
 const photosCount = 25;
 
-console.log(createPhotos(photosCount));
+window.renderPictures(createPhotos(photosCount));
